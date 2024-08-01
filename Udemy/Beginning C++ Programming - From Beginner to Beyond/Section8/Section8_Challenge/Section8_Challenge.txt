@@ -1,0 +1,17 @@
+Write a program that asks the user to enter the following:
+
+An integer representing the number of cents.
+
+You may assume that the number of cents entered is greater than or equal to zero.
+
+The program should the display how to provide change to the user.
+
+In Rands:
+
+1 Rand is 100 cents
+50 cents
+20 cents
+10 cents
+5 cents
+1 cent
+
