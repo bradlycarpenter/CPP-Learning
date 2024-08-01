@@ -430,3 +430,5 @@ FodyWeavers.xsd
 
 # JetBrains Rider
 *.sln.iml
+Udemy/Beginning C++ Programming - From Beginner to Beyond/Section9/.vscode/settings.json
+Udemy/Beginning C++ Programming - From Beginner to Beyond/Section9/.vscode/tasks.json
