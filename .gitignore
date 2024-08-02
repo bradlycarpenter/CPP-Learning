@@ -430,5 +430,7 @@ FodyWeavers.xsd
 *.exe
 *.out
 *.app
+
+# Stupid tasks.json file
+
 tasks.json
-Udemy/Beginning C++ Programming - From Beginner to Beyond/Section10/.vscode/tasks.json
