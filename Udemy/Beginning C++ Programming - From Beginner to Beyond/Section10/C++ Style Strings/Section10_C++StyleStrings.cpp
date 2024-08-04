@@ -18,8 +18,7 @@ int main() {
      // cout << s0 << endl;          // No Garbage
      // cout << s0.length() << endl; // Empty String
 
-     // Initialization
-     /*
+     /* Initialization
      cout << "\nInitialization"
      << "\n________________________" << endl;
      cout << "s1 is initialized to: " << s1 << endl;
@@ -44,7 +43,7 @@ int main() {
      cout << s1 << " == " << "Apple" << ": " << (s1 == "Apple") << endl; // True Apple = Apple
      */
 
-     /*Assignment*/
+     /*Assignment
      cout << "\nAssignment" << "\n__________________" << endl;
 
      s1 = "Watermelon";
@@ -58,8 +57,74 @@ int main() {
      s3[0] = 'C';
      cout << "s3 changed first letter to C: " << s3 << endl;
      s3.at(0) = 'P';
-     cout << "s3 changed first letter to P: " << s3 << endl; 
+     cout << "s3 changed first letter to P: " << s3 << endl; */
 
+     /*Concatenation
+     s3 = "Watermelon";
+     cout << "\nConcatenation " << "\n______________" << endl;
+
+     s3 = s5 + " and" + s2 + " juice"; // Apple and Banana Juice
+     cout << "s3 is now: " << s3 << endl; // Apple and Banana Juice
+
+     // s3 = "nice " + " cold " + s5 + "juice"; // Comipler Error*/
+
+     /*for loop
+     cout << "\nLooping" << "\n-------------------------" << endl;
+
+     s1 = "Apple";
+     for (size_t i {0}; i < s1.length(); ++i)
+          cout << s1.at(i);
+     cout << endl;*/
+
+     /*Range-based for loop
+     cout << "\nLooping" << "\n-------------------------" << endl;
+
+     s1 = "Apple";
+     for (char c:s1)
+          cout << c;
+     cout << endl;*/
+
+     /*Substring
+     cout << "\nSubstring" << "\n--------------------------" << endl;
+     s1 = "This is a test";
+
+     cout << s1.substr(0,4) << endl;    // This
+     cout << s1.substr(5,2) << endl;    // is
+     cout << s1.substr(10,4) << endl;   // test */
+
+     /*Erase
+     cout << "\nErase" << "\n---------------------------" << endl;
+
+     s1 = "This is a test";
+     s1.erase(0,5);          //Erase This from s1 results in "is a test"
+     cout << "s1 is now: " << s1 << endl;  // is a test*/
+
+     /*Getline
+     cout << "\ngetline" << "\n-------------------" << endl;
+
+     string full_name {};
+
+     cout << "Enter your full name ";
+     getline(cin, full_name);
+
+     cout << "Your full name is: " << full_name << endl;*/
+
+     /*Find*/
+     cout << "\nfind" << "\n------------------------" << endl;
+
+     s1 = "The secret word is Boo";
+     string word{};
+
+     cout << "Enter the word to find: ";
+     cin >> word;
+
+     size_t position = s1.find(word);
+     if (position != string::npos)
+          cout << "Found " << word << " at position: " << position << endl;
+     else
+          cout << "Sorry, " << word << " not found" << endl;
+
+     cout << endl;
 
 
 }
