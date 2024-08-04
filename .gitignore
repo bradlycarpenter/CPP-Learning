@@ -434,3 +434,4 @@ FodyWeavers.xsd
 # Stupid tasks.json file
 
 tasks.json
+settings.json
