@@ -31,6 +31,7 @@ int main() {
      cout << "s7 is initialized to: " << s7 << endl;
      */
 
+     /* Comparison
      cout << "\nComparison"
      << "\n------------------------------" << endl;
      cout << boolalpha;
@@ -41,6 +42,24 @@ int main() {
      cout << s2 << " > " << s1 << ": " << (s2 > s1) << endl;   // True Banan > Apple
      cout << s4 << " < " << s5 << ": " << (s4 < s5) << endl;   // False apple > Apple
      cout << s1 << " == " << "Apple" << ": " << (s1 == "Apple") << endl; // True Apple = Apple
+     */
+
+     /*Assignment*/
+     cout << "\nAssignment" << "\n__________________" << endl;
+
+     s1 = "Watermelon";
+     cout << "s1 is now: " << s1 << endl;
+     s2 = s1;
+     cout << "s2 is now: " << s2 << endl;
+
+     s3 = "Frank";
+     cout << "s3 is now: " << s3 << endl;
+
+     s3[0] = 'C';
+     cout << "s3 changed first letter to C: " << s3 << endl;
+     s3.at(0) = 'P';
+     cout << "s3 changed first letter to P: " << s3 << endl; 
+
 
 
 }
