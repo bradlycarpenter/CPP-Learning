@@ -109,7 +109,7 @@ int main() {
 
      cout << "Your full name is: " << full_name << endl;*/
 
-     /*Find*/
+     /*Find
      cout << "\nfind" << "\n------------------------" << endl;
 
      s1 = "The secret word is Boo";
@@ -124,7 +124,5 @@ int main() {
      else
           cout << "Sorry, " << word << " not found" << endl;
 
-     cout << endl;
-
-
+     cout << endl;*/
 }
