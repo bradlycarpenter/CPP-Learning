@@ -3,13 +3,14 @@
 Ask the user what grade they expect on an exam and tell them what they need to score to get it.
 */
 
-
 #include <iostream>
 using namespace std;
 
 int main(){
 
 char letter_grade{};
+
+bool istrue{};
 
 cout << "Enter the letter grade you expect on the exam: " << endl;
 cin >> letter_grade;
