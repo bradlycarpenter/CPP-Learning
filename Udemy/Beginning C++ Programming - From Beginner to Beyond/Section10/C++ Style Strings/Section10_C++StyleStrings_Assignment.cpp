@@ -6,12 +6,11 @@
 using namespace std;
 
 int main(){
-    string user{"123456"};
+    string user{""};
     string output{""};
     string reverse_output{""};
-    
-    //cout << "Please enter the word you would like to see displayed as a pyramid: " << endl;
-    //getline(cin,user);
+    cout << "Please enter the word you would like to see displayed as a pyramid: " << endl;
+    getline(cin,user);
    for (size_t i = 0; i < user.length(); ++i) {
         string white_spaces(user.length() - output.length(),' ');
         cout << white_spaces << output + reverse_output << white_spaces << endl;
