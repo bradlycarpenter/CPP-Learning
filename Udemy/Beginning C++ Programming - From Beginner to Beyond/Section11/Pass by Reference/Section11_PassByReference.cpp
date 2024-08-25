@@ -8,7 +8,6 @@ void pass_by_ref1(int & num);
 void pass_by_ref2(string &s);
 void pass_by_ref3(vector <string> &v);
 void print_vector(const vector<string> &v); // const
-
 void pass_by_ref1(int & num){
     num = 1000;
 }
