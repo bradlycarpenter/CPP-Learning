@@ -4,6 +4,31 @@
 
 using namespace std;
 
+void display_menu();
+void print_numbers(vector<int> numbers);
+
+void display_menu(){
+    cout << "-------------------------------" << endl;
+    cout << "P - Print numbers" << endl;
+    cout << "A - Add a number" << endl;
+    cout << "M - Display mean of the numbers" << endl;
+    cout << "S - Display the smallest number" << endl;
+    cout << "L - Display the largest number" << endl;
+    cout << "Q - Quit" << endl;
+    cout << "-------------------------------" << endl;
+}
+
+void print_numbers(vector<int> numbers){
+    cout << "-------------------------------" << endl;
+    cout << "[ ";
+    if (numbers.empty()) {
+        cout << "[] - No numbers to display." << endl;
+    } else {
+        for (auto i : numbers) cout << i << " ";
+    }
+    cout << "]" << endl;
+}
+
 int main() {
     char opt{};
     vector<int> numbers{};
@@ -13,27 +38,11 @@ int main() {
     int largest{};
 
     do {
-        cout << "-------------------------------" << endl;
-        cout << "P - Print numbers" << endl;
-        cout << "A - Add a number" << endl;
-        cout << "M - Display mean of the numbers" << endl;
-        cout << "S - Display the smallest number" << endl;
-        cout << "L - Display the largest number" << endl;
-        cout << "Q - Quit" << endl;
-        cout << "-------------------------------" << endl;
-
+        display_menu();
         cin >> opt;
-
         switch (tolower(opt)) {
             case 'p': {
-                cout << "-------------------------------" << endl;
-                cout << "[ ";
-                if (numbers.empty()) {
-                    cout << "[] - No numbers to display." << endl;
-                } else {
-                    for (auto i : numbers) cout << i << " ";
-                }
-                cout << "]" << endl;
+                print_numbers(numbers);
                 break;
             }
             case 'a': {
