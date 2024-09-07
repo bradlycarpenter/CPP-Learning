@@ -19,7 +19,7 @@ double a_penny_doubled_everyday(double total_amount, int n){
     if (function_activation_count == n){
         return total_amount;
     }
-    return total_amount;
+    return a_penny_doubled_everyday(total_amount + total_amount ,n);
 }
 
 int test_function_activation_count(){
