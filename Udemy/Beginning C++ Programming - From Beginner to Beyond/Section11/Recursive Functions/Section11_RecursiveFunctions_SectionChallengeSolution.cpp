@@ -55,7 +55,7 @@ int main(){
 				break;
 			default:
 				handle_unknown();
-                }
+		}
 	} while (selection != 'Q');
 	cout << endl;
 	return 0;
