@@ -2,6 +2,8 @@
 using namespace std;
 
 int main(){
-    int *int_ptr{};
-    cout << int_ptr << endl;
+    int x{4};
+    int *pX = &x;
+    cout << "pX is equal to: " << pX << endl;
+    cout << "x is equal to: " << &x << endl;
 }
