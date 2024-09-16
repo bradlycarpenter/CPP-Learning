@@ -10,7 +10,6 @@ int main() {
   std::cout << "\nArray of subscript notation -------------------" << std::endl;
   std::cout << scores[0] << std::endl;
   std::cout << scores[1] << std::endl;
-
   std::cout << scores[2] << std::endl;
 
   std::cout << "\nPointer subscript notation -------------------" << std::endl;
