@@ -5,14 +5,22 @@
 
 using namespace std;
 
+void createFile();
+
 int main() {
-  vector<string> file_contents;
   cout << "Starting up Pomodoro Tracker\n";
+  createFile();
+}
+
+void createFile() {
+  // Create File Object
   ifstream MyFile;
   MyFile.open("Record.txt");
+  // Check if the file exists
   if (!MyFile) {
+    // Create File
     ofstream MyFile("Record.txt");
   } else {
-    cout << "MyFile Exists\n";
+    cout << "File Exists\n";
   }
 }
