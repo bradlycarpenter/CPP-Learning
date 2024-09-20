@@ -19,17 +19,16 @@ int main() {
 }
 
 void Timer(size_t &seconds) {
+  cout << "\x1b[91m";
   for (size_t i{seconds}; i > 0; --i) {
-    // if (i > 120) {
-    //   cout << i / 60 << " Minutes remaining";
-    // } else if (i > 60) {
-    //   cout << i / 60 << " Minute remaining";
-    // } else {
-    //   cout << i << " Seconds remaining";
-    // }
-    cout << "\x1b[91m"<< i << " Seconds remaining\n";
-    // system("clear");
-    fflush(stdout); // Flash buffer to display numbers sequentially
+    if (i > 119) {
+      cout << i / 60 << " Minutes remaining";
+    } else if (i > 59) {
+      cout << i / 60 << " Minute remaining";
+    } else {
+      cout << i << " Seconds remaining";
+    }
+    cout << "\n";
     this_thread::sleep_for(chrono::seconds(1)); // Freeze for 1 second
     cout << "\x1B[1A";
     cout << "\x1B[0K";
