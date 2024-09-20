@@ -27,6 +27,7 @@ void Timer(size_t &seconds) {
     } else {
       cout << i << " Seconds remaining";
     }
+    cout << i << " Seconds remaining";
     system("clear");
     fflush(stdout); // Flash buffer to display numbers sequentially
     this_thread::sleep_for(chrono::seconds(1)); // Freeze for 1 second
