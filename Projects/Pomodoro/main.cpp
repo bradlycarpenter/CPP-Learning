@@ -1,26 +1,43 @@
-// #include <chrono>
-#include <fstream>
+#include <chrono>
+#include <cstdio>
+#include <ctime>
 #include <iostream>
-// #include <vector>
+#include <thread>
 
 using namespace std;
 
-void createFile();
+string getPresentDateTime();
+void Timer(size_t &seconds);
 
 int main() {
-  cout << "Starting up Pomodoro Tracker\n";
-  createFile();
+  cout << "Starting up Pomodoro Tracker";
+  cout << "\nHow long would you like your first split to be? (Minutes): ";
+  size_t minutes;
+  cin >> minutes;
+  size_t seconds = minutes * 60;
+  Timer(seconds);
 }
 
-void createFile() {
-  // Create File Object
-  ifstream MyFile;
-  MyFile.open("Record.txt");
-  // Check if the file exists
-  if (!MyFile) {
-    // Create File
-    ofstream MyFile("Record.txt");
-  } else {
-    cout << "File Exists\n";
+void Timer(size_t &seconds) {
+  for (size_t i{seconds}; i > 0; --i) {
+    if (i > 120) {
+      cout << i / 60 << " Minutes remaining";
+    } else if (i > 60) {
+      cout << i / 60 << " Minute remaining";
+    } else {
+      cout << i << " Seconds remaining";
+    }
+    system("clear");
+    fflush(stdout); // Flash buffer to display numbers sequentially
+    this_thread::sleep_for(chrono::seconds(1)); // Freeze for 1 second
   }
+}
+
+string getPresentDateTime() {
+  // Declare a time_t variable to hold the current time.
+  time_t tt;
+  // Declare a pointer to a tm struct to hold the local time.
+  struct tm *st;
+
+  return asctime(st);
 }
