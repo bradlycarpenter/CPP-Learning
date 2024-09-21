@@ -4,14 +4,14 @@
 
 using namespace std;
 
-// string getPresentDateTime();
 void Timer(size_t &seconds);
 
 int main() {
   system("clear");
 
   cout << "Starting up Pomodoro Tracker"
-       << "\nHow long would you like your first split to be? (Minutes): ";
+       << "\nHow long would you like your first split to be? (Minutes): "
+       << "Git";
 
   size_t minutes;
   cin >> minutes;
