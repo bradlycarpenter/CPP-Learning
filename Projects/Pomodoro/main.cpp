@@ -10,8 +10,7 @@ int main() {
   system("clear");
 
   cout << "Starting up Pomodoro Tracker"
-       << "\nHow long would you like your first split to be? (Minutes): "
-       << "Git";
+       << "\nHow long would you like your first split to be? (Minutes): ";
 
   size_t minutes;
   cin >> minutes;
