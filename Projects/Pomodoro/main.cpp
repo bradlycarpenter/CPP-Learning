@@ -6,7 +6,7 @@
 
 using namespace std;
 
-string getPresentDateTime();
+// string getPresentDateTime();
 void Timer(size_t &seconds);
 
 int main() {
@@ -40,6 +40,6 @@ void Timer(size_t &seconds) {
 //   time_t tt;
 //   // Declare a pointer to a tm struct to hold the local time.
 //   struct tm *st;
-
+// 
 //   return asctime(st);
 // }
