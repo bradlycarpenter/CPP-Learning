@@ -1,13 +1,21 @@
 #include <chrono>
 #include <iostream>
+#include <string>
 #include <thread>
 
 using namespace std;
 
 void Timer(size_t &seconds);
 
+#if defined(__linux__)
+string clearCommand{"clear"};
+#elif (_WIN32)
+string clear_command{"cls"};
+#endif
+
 int main() {
-  system("clear");
+
+  system(clear_command.c_str());
 
   cout << "Starting up Pomodoro Tracker"
        << "\nHow long would you like your first split to be? (Minutes): ";
@@ -20,7 +28,7 @@ int main() {
 }
 
 void Timer(size_t &seconds) {
-  system("clear");
+  system(clear_command.c_str());
   // Red
   cout << "\x1b[91m";
 
@@ -34,6 +42,6 @@ void Timer(size_t &seconds) {
     }
 
     this_thread::sleep_for(chrono::seconds(1)); // Freeze for 1 second
-    system("clear");
+    system(clear_command.c_str());
   }
 }
