@@ -32,14 +32,14 @@ void Timer(size_t &seconds) {
     this_thread::sleep_for(chrono::seconds(1)); // Freeze for 1 second
     cout << "\x1B[1A";
     cout << "\x1B[0K";
-  }
+    }
 }
 
-string getPresentDateTime() {
-  // Declare a time_t variable to hold the current time.
-  time_t tt;
-  // Declare a pointer to a tm struct to hold the local time.
-  struct tm *st;
+// string getPresentDateTime() {
+//   // Declare a time_t variable to hold the current time.
+//   time_t tt;
+//   // Declare a pointer to a tm struct to hold the local time.
+//   struct tm *st;
 
-  return asctime(st);
-}
+//   return asctime(st);
+// }
