@@ -8,7 +8,7 @@ using namespace std;
 void Timer(size_t &seconds);
 
 #if defined(__linux__)
-string clearCommand{"clear"};
+string clear_command{"clear"};
 #elif (_WIN32)
 string clear_command{"cls"};
 #endif
