@@ -5,7 +5,9 @@
 
 using namespace std;
 
-void Timer(size_t &seconds);
+void playTimer(size_t seconds);
+string greetingMessage();
+size_t askSeconds();
 
 #if defined(__linux__)
 string clear_command{"clear"};
@@ -14,23 +16,12 @@ string clear_command{"cls"};
 #endif
 
 int main() {
-
-  system(clear_command.c_str());
-
-  cout << "Starting up Pomodoro Tracker"
-       << "\nHow long would you like your first split to be? (Minutes): ";
-
-  size_t minutes;
-  cin >> minutes;
-  size_t seconds = minutes * 60;
-
-  Timer(seconds);
+  cout << greetingMessage();
+  playTimer(askSeconds());
 }
 
-void Timer(size_t &seconds) {
+void playTimer(size_t seconds) {
   system(clear_command.c_str());
-  // Red
-  cout << "\x1b[91m";
 
   for (size_t i{seconds}; i > 0; --i) {
     if (i > 119) {
@@ -42,6 +33,18 @@ void Timer(size_t &seconds) {
     }
 
     this_thread::sleep_for(chrono::seconds(1)); // Freeze for 1 second
-    system(clear_command.c_str());
+    system(clear_command.c_str());              // Clear Terminal
   }
+}
+
+string greetingMessage() {
+  system(clear_command.c_str());
+  return "Starting up Pomodoro Tracker";
+}
+
+size_t askSeconds() {
+  size_t minutes;
+  cout << "\nHow long would you like your split to be? (Minutes): ";
+  cin >> minutes;
+  return minutes * 60;
 }
