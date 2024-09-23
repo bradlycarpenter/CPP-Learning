@@ -55,6 +55,7 @@ void clearScreen() {
 }
 
 void timer(size_t seconds) {
+  size_t k{0};
   for (size_t i{seconds}; i > 0; --i) {
     if (i > 119) {
       cout << i / 60 << " Minutes remaining\n";
@@ -63,6 +64,17 @@ void timer(size_t seconds) {
     } else {
       cout << i << " Seconds remaining\n";
     }
+
+    cout << "[";
+    for (size_t j{0}; j < k / 60; ++j) {
+      cout << "+";
+    }
+    ++k;
+
+    for (size_t j{0}; j < i / 60; ++j) {
+      cout << "-";
+    }
+    cout << "]";
 
     cout << "\n";
 
