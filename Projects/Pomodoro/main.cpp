@@ -1,28 +1,62 @@
 #include <chrono>
 #include <iostream>
-#include <string>
 #include <thread>
 
 using namespace std;
 
-void playTimer(size_t seconds);
-string greetingMessage();
-size_t askSeconds();
-
-#if defined(__linux__)
-const string CLEAR_COMMAND{"clear"};
-#elif (_WIN32)
-cons tstring CLEAR_COMMAND{"cls"};
-#endif
+void clearScreen();
+void timer(size_t seconds);
 
 int main() {
-  cout << greetingMessage();
-  playTimer(askSeconds());
+  clearScreen();
+
+  cout << "--------------------------------------------------------------\n"
+          "-                 Welcome to the Pomodoro Timer              -\n"
+          "--------------------------------------------------------------\n";
+
+  cout << "\nHow long would you like your working splits to be? (Minutes): ";
+  size_t minutes;
+  cin >> minutes;
+  size_t split_seconds = minutes * 60;
+  cout << "\nHow long would you like your breaks to be? (Minutes): ";
+  cin >> minutes;
+  size_t break_seconds = minutes * 60;
+
+  clearScreen();
+
+  char working{'y'};
+
+  do {
+    cout << "Working..\n";
+    timer(split_seconds);
+
+    cout << "Work Split is Over\n";
+    this_thread::sleep_for(chrono::seconds(1)); // Freeze for 1 second
+    clearScreen();
+
+    cout << "Break Time!\n";
+    timer(break_seconds);
+
+    this_thread::sleep_for(chrono::seconds(1)); // Freeze for 1 second
+    clearScreen();
+
+    cout << "Would you like to continue working? ('y' = Yes, 'n' = No)\n";
+    cin >> working;
+    clearScreen();
+  } while (working == 'Y' || working == 'y');
+
+  cout << "See you later";
 }
 
-void playTimer(size_t seconds) {
-  system(CLEAR_COMMAND.c_str());
+void clearScreen() {
+#if defined(_WIN32)
+  system("cls");
+#else
+  system("clear");
+#endif
+}
 
+void timer(size_t seconds) {
   for (size_t i{seconds}; i > 0; --i) {
     if (i > 119) {
       cout << i / 60 << " Minutes remaining\n";
@@ -31,22 +65,8 @@ void playTimer(size_t seconds) {
     } else {
       cout << i << " Seconds remaining\n";
     }
-
     this_thread::sleep_for(chrono::seconds(1)); // Freeze for 1 second
-    system(CLEAR_COMMAND.c_str());              // Clear Terminal
+    cout << "\x1B[1A";
+    cout << "\x1B[0K";
   }
-}
-
-string greetingMessage() {
-  system(CLEAR_COMMAND.c_str());
-  return "--------------------------------------------------------------\n"
-         "-                 Welcome to the Pomodoro Timer              -\n"
-         "--------------------------------------------------------------\n";
-}
-
-size_t askSeconds() {
-  size_t minutes;
-  cout << "\nHow long would you like your split to be? (Minutes): ";
-  cin >> minutes;
-  return minutes * 60;
 }
