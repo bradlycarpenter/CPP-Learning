@@ -10,9 +10,9 @@ void timer(size_t seconds);
 int main() {
   clearScreen();
 
-  cout << "--------------------------------------------------------------\n"
-          "-                 Welcome to the Pomodoro Timer              -\n"
-          "--------------------------------------------------------------\n";
+  cout << "--------------------------------------------------------\n"
+          "-              Welcome to the Pomodoro Timer           -\n"
+          "--------------------------------------------------------\n";
 
   cout << "\nHow long would you like your working splits to be? (Minutes): ";
   size_t minutes;
