@@ -10,9 +10,9 @@ string greetingMessage();
 size_t askSeconds();
 
 #if defined(__linux__)
-string clear_command{"clear"};
+const string CLEAR_COMMAND{"clear"};
 #elif (_WIN32)
-string clear_command{"cls"};
+cons tstring CLEAR_COMMAND{"cls"};
 #endif
 
 int main() {
@@ -21,7 +21,7 @@ int main() {
 }
 
 void playTimer(size_t seconds) {
-  system(clear_command.c_str());
+  system(CLEAR_COMMAND.c_str());
 
   for (size_t i{seconds}; i > 0; --i) {
     if (i > 119) {
@@ -33,13 +33,15 @@ void playTimer(size_t seconds) {
     }
 
     this_thread::sleep_for(chrono::seconds(1)); // Freeze for 1 second
-    system(clear_command.c_str());              // Clear Terminal
+    system(CLEAR_COMMAND.c_str());              // Clear Terminal
   }
 }
 
 string greetingMessage() {
-  system(clear_command.c_str());
-  return "Starting up Pomodoro Tracker";
+  system(CLEAR_COMMAND.c_str());
+  return "--------------------------------------------------------------\n"
+         "-                 Welcome to the Pomodoro Timer              -\n"
+         "--------------------------------------------------------------\n";
 }
 
 size_t askSeconds() {
