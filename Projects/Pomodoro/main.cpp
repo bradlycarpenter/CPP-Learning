@@ -22,10 +22,8 @@ int main() {
   cin >> minutes;
   size_t break_seconds = minutes * 60;
 
+  char working{'Y'};
   clearScreen();
-
-  char working{'y'};
-
   do {
     cout << "Working..\n";
     timer(split_seconds);
@@ -43,7 +41,7 @@ int main() {
     cout << "Would you like to continue working? ('y' = Yes, 'n' = No)\n";
     cin >> working;
     clearScreen();
-  } while (working == 'Y' || working == 'y');
+  } while (toupper(working) == 'Y');
 
   cout << "See you later";
 }
@@ -65,8 +63,14 @@ void timer(size_t seconds) {
     } else {
       cout << i << " Seconds remaining\n";
     }
-    this_thread::sleep_for(chrono::seconds(1)); // Freeze for 1 second
-    cout << "\x1B[1A";
-    cout << "\x1B[0K";
+
+    cout << "\n";
+
+    this_thread::sleep_for(chrono::milliseconds(50)); // Freeze for 1 second
+
+    cout << "\x1B[1A"; // Move cursor up one line
+    cout << "\x1B[0K"; // Delete from cursor till end of line
+    cout << "\x1B[1A"; // Move cursor up one line
+    cout << "\x1B[0K"; // Delete from cursor till end of line
   }
 }
