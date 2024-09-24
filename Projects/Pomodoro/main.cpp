@@ -55,7 +55,10 @@ void clearScreen() {
 }
 
 void timer(size_t seconds) {
-  size_t k{0};
+  double progress_percent{1};
+  double progress_percent_reverse{0.01};
+  const int PROGRESS_BAR_LENGTH{60};
+
   for (size_t i{seconds}; i > 0; --i) {
     if (i > 119) {
       cout << i / 60 << " Minutes remaining\n";
@@ -64,16 +67,19 @@ void timer(size_t seconds) {
     } else {
       cout << i << " Seconds remaining\n";
     }
-
     cout << "[";
-    for (size_t j{0}; j < k / 60; ++j) {
+
+    for (size_t j{0}; j < PROGRESS_BAR_LENGTH * progress_percent_reverse; ++j) {
       cout << "+";
     }
-    ++k;
 
-    for (size_t j{0}; j < i / 60; ++j) {
+    for (size_t j{0}; j < PROGRESS_BAR_LENGTH * progress_percent; ++j) {
       cout << "-";
     }
+
+    progress_percent = static_cast<double>(i) / static_cast<double>(seconds);
+    progress_percent_reverse = 1 - progress_percent;
+
     cout << "]";
 
     cout << "\n";
