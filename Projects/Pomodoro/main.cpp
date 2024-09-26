@@ -1,5 +1,7 @@
 #include <chrono>
+#include <cmath>
 #include <iostream>
+#include <string>
 #include <thread>
 
 void clearScreen();
@@ -54,41 +56,25 @@ void clearScreen() {
 }
 
 void timer(size_t seconds) {
-  double progress_percent{1};
-  double progress_percent_reverse{0.01};
   const int PROGRESS_BAR_LENGTH{60};
 
   for (size_t i{seconds}; i > 0; --i) {
-    if (i > 119) {
-      std::cout << i / 60 << " Minutes remaining\n";
-    } else if (i > 59) {
-      std::cout << i / 60 << " Minute remaining\n";
+    if (i >= 60) {
+      std::cout << i / 60 << " Minute" << (i > 119 ? "s" : "")
+                << " remaining\n";
     } else {
-      std::cout << i << " Seconds remaining\n";
-    }
-    std::cout << "[";
-
-    for (size_t j{0}; j < PROGRESS_BAR_LENGTH * progress_percent_reverse; ++j) {
-      std::cout << "+";
+      std::cout << i << " Second" << (i > 1 ? "s" : "") << " remaining\n";
     }
 
-    for (size_t j{0}; j < PROGRESS_BAR_LENGTH * progress_percent; ++j) {
-      std::cout << "-";
-    }
+    double progress_percent = static_cast<double>(seconds - i) / seconds;
+    size_t plus_char_amount =
+        round(PROGRESS_BAR_LENGTH * progress_percent);
+    size_t minus_char_amount = PROGRESS_BAR_LENGTH - plus_char_amount;
 
-    progress_percent = static_cast<double>(i) / static_cast<double>(seconds);
-    progress_percent_reverse = 1 - progress_percent;
+    std::cout << "[" << std::string(plus_char_amount, '+')
+              << std::string(minus_char_amount, '-') << "]\n";
 
-    std::cout << "]";
-
-    std::cout << "\n";
-
-    std::this_thread::sleep_for(
-        std::chrono::milliseconds(50)); // Freeze for 1 second
-
-    std::cout << "\x1B[1A"; // Move cursor up one line
-    std::cout << "\x1B[0K"; // Delete from cursor till end of line
-    std::cout << "\x1B[1A"; // Move cursor up one line
-    std::cout << "\x1B[0K"; // Delete from cursor till end of line
+    std::this_thread::sleep_for(std::chrono::seconds(1));
+    std::cout << "\x1B[1A\x1B[0K\x1B[1A\x1B[0K";
   }
 }
