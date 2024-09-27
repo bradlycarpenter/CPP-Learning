@@ -33,6 +33,10 @@ int main() {
     std::this_thread::sleep_for(std::chrono::seconds(1)); // Freeze for 1 second
     clearScreen();
 
+    std::cout << "Are you ready to start your break? ('y' = Yes)\n";
+    std::cin >> working;
+    clearScreen();
+
     std::cout << "Break Time!\n";
     timer(break_seconds);
 
@@ -67,8 +71,7 @@ void timer(size_t seconds) {
     }
 
     double progress_percent = static_cast<double>(seconds - i) / seconds;
-    size_t plus_char_amount =
-        round(PROGRESS_BAR_LENGTH * progress_percent);
+    size_t plus_char_amount = round(PROGRESS_BAR_LENGTH * progress_percent);
     size_t minus_char_amount = PROGRESS_BAR_LENGTH - plus_char_amount;
 
     std::cout << "[" << std::string(plus_char_amount, '+')
