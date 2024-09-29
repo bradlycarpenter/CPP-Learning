@@ -73,7 +73,6 @@ void timer(size_t seconds) {
     double progress_percent = static_cast<double>(seconds - i) / seconds;
     size_t plus_char_amount = round(PROGRESS_BAR_LENGTH * progress_percent);
     size_t minus_char_amount = PROGRESS_BAR_LENGTH - plus_char_amount;
-
     std::cout << "[" << std::string(plus_char_amount, '+')
               << std::string(minus_char_amount, '-') << "]\n";
 
