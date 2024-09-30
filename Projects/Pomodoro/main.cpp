@@ -5,7 +5,7 @@
 #include <thread>
 
 void clearScreen();
-void timer(size_t seconds);
+void timer(std::size_t seconds);
 
 int main() {
   clearScreen();
@@ -16,12 +16,12 @@ int main() {
 
   std::cout
       << "\nHow long would you like your working splits to be? (Minutes): ";
-  size_t minutes;
+  std::size_t minutes;
   std::cin >> minutes;
-  size_t split_seconds = minutes * 60;
+  std::size_t split_seconds = minutes * 60;
   std::cout << "\nHow long would you like your breaks to be? (Minutes): ";
   std::cin >> minutes;
-  size_t break_seconds = minutes * 60;
+  std::size_t break_seconds = minutes * 60;
 
   char working{'Y'};
   clearScreen();
@@ -59,10 +59,10 @@ void clearScreen() {
 #endif
 }
 
-void timer(size_t seconds) {
+void timer(std::size_t seconds) {
   const int PROGRESS_BAR_LENGTH{60};
 
-  for (size_t i{seconds}; i > 0; --i) {
+  for (std::size_t i{seconds}; i > 0; --i) {
     if (i >= 60) {
       std::cout << i / 60 << " Minute" << (i > 119 ? "s" : "")
                 << " remaining\n";
@@ -71,8 +71,8 @@ void timer(size_t seconds) {
     }
 
     double progress_percent = static_cast<double>(seconds - i) / seconds;
-    size_t plus_char_amount = round(PROGRESS_BAR_LENGTH * progress_percent);
-    size_t minus_char_amount = PROGRESS_BAR_LENGTH - plus_char_amount;
+    std::size_t plus_char_amount = round(PROGRESS_BAR_LENGTH * progress_percent);
+    std::size_t minus_char_amount = PROGRESS_BAR_LENGTH - plus_char_amount;
     std::cout << "[" << std::string(plus_char_amount, '+')
               << std::string(minus_char_amount, '-') << "]\n";
 
