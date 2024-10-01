@@ -1,7 +1,6 @@
 #include <chrono>
 #include <cmath>
 #include <ctime>
-#include <fstream>
 #include <iostream>
 #include <string>
 #include <thread>
@@ -37,7 +36,7 @@ int main() {
     timer(split_seconds);
 
     cout << "Work Split is Over\n";
-    this_thread::sleep_for(chrono::seconds(1)); // Freeze for 1 second
+    this_thread::sleep_for(chrono::seconds(1));
     clearScreen();
 
     cout << "Are you ready to start your break? ('y' = Yes)\n";
@@ -47,7 +46,7 @@ int main() {
     cout << "Break Time!\n";
     timer(break_seconds);
 
-    this_thread::sleep_for(chrono::seconds(1)); // Freeze for 1 second
+    this_thread::sleep_for(chrono::seconds(1));
     clearScreen();
 
     cout << "Would you like to continue working? ('y' = Yes, 'n' = No)\n";
