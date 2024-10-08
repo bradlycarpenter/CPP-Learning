@@ -5,11 +5,7 @@
 #include <string>
 #include <thread>
 
-using std::cin;
-using std::cout;
-using std::size_t;
-using std::string;
-using std::time_t;
+using namespace std;
 
 void clearScreen();
 void timer(size_t seconds);
@@ -17,8 +13,8 @@ void timer(size_t seconds);
 int main() {
   clearScreen();
 
-  auto current_time = std::chrono::system_clock::now();
-  time_t time_now = std::chrono::system_clock::to_time_t(current_time);
+  auto current_time = chrono::system_clock::now();
+  time_t time_now = chrono::system_clock::to_time_t(current_time);
   cout << ctime(&time_now);
 
   cout << "--------------------------------------------------------\n"
@@ -40,7 +36,7 @@ int main() {
     timer(split_seconds);
 
     cout << "Work Split is Over\n";
-    std::this_thread::sleep_for(std::chrono::seconds(1));
+    this_thread::sleep_for(chrono::seconds(1));
     clearScreen();
 
     cout << "Are you ready to start your break? ('y' = Yes)\n";
@@ -50,7 +46,7 @@ int main() {
     cout << "Break Time!\n";
     timer(break_seconds);
 
-    std::this_thread::sleep_for(std::chrono::seconds(1));
+    this_thread::sleep_for(chrono::seconds(1));
     clearScreen();
 
     cout << "Would you like to continue working? ('y' = Yes, 'n' = No)\n";
@@ -85,7 +81,7 @@ void timer(size_t seconds) {
     cout << "[" << string(plus_char_amount, '+')
          << string(minus_char_amount, '-') << "]\n";
 
-    std::this_thread::sleep_for(std::chrono::seconds(1));
+    this_thread::sleep_for(chrono::seconds(1));
     cout << "\x1B[1A\x1B[0K\x1B[1A\x1B[0K";
   }
 }
