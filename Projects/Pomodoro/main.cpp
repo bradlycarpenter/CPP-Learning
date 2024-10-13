@@ -50,7 +50,7 @@ int main() {
     clearScreen();
 
     cout << "Would you like to continue working? ('y' = Yes, 'n' = No)\n";
-    cin >> working;
+      cin >> working;
     clearScreen();
   } while (toupper(working) == 'Y');
 
@@ -83,5 +83,6 @@ void timer(size_t seconds) {
 
     this_thread::sleep_for(chrono::seconds(1));
     cout << "\x1B[1A\x1B[0K\x1B[1A\x1B[0K";
+    cout << "What du hell";
   }
 }
