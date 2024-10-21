@@ -1,8 +1,9 @@
 #include <iostream>
 
 using std::cout;
+using std::endl;
 
-int reverse_array(int *arr, int size);
+void reverse_array(int *arr, int size);
 
 int main() {
   int arr[] = {1, 2, 3, 4, 5};
@@ -10,12 +11,10 @@ int main() {
 
   reverse_array(arr, size);
 
-  cout << "Wassup";
-
+  cout << arr + 1<< endl;
+  
   // After the function call, the array should be reversed:
   // arr[] = {5, 4, 3, 2, 1}
 }
 
-int reverse_array(int *arr, int size){
-  return 0;
-}
+void reverse_array(int *arr, int size) {}

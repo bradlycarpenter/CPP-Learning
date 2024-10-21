@@ -17,9 +17,9 @@ int main() {
 
 void swapPointers(int *ptr1, int *ptr2) {
   //-- Write your code below this line
-  *ptr1 = *ptr1 + *ptr2;
-  *ptr2 = *ptr1 - *ptr2;
-  *ptr1 = *ptr1 - *ptr2;
+  *ptr1 = *ptr1 + *ptr2; // 5+10 = 15
+  *ptr2 = *ptr1 - *ptr2; // 15 - 10 = 5
+  *ptr1 = *ptr1 - *ptr2; // 15 - 5 = 10
   cout << "Function Completed\n";
   //-- Write your code above this line
 }
