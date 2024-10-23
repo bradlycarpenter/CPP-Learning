@@ -2,19 +2,32 @@
 
 using std::cout;
 using std::endl;
+using std::size_t;
 
 void reverse_array(int *arr, int size);
+void print_array(int *arr, int size);
 
 int main() {
-  int arr[] = {1, 2, 3, 4, 5};
+  int arr[] = {1, 2, 3, 4, 5, 6};
   int size = sizeof(arr) / sizeof(arr[0]);
 
   reverse_array(arr, size);
+  print_array(arr, size);
 
-  cout << arr + 1<< endl;
-  
   // After the function call, the array should be reversed:
   // arr[] = {5, 4, 3, 2, 1}
 }
 
-void reverse_array(int *arr, int size) {}
+void reverse_array(int *arr, int size) {
+  for (size_t i{0}; i < size - i; ++i) {
+    arr[i] = arr[i] + arr[size - i];
+    arr[size - i] = arr[i] - arr[size - i];
+    arr[i] = arr[i] - arr[size - i];
+  }
+}
+
+void print_array(int *arr, int size){
+  for (size_t i{0}; i < size; ++i){
+    cout << arr[i] << endl;
+  }
+}
