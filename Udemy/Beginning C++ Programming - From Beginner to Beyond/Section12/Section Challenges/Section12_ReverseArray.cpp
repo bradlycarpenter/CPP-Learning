@@ -19,15 +19,16 @@ int main() {
 }
 
 void reverse_array(int *arr, int size) {
-  for (size_t i{0}; i < size - i; ++i) {
-    arr[i] = arr[i] + arr[size - i];
-    arr[size - i] = arr[i] - arr[size - i];
-    arr[i] = arr[i] - arr[size - i];
+  for (size_t i{0}; i < size / 2; ++i) {
+    arr[i] = arr[i] + arr[size - i - 1];
+    arr[size - i - 1] = arr[i] - arr[size - i - 1];
+    arr[i] = arr[i] - arr[size - i - 1];
   }
 }
 
-void print_array(int *arr, int size){
-  for (size_t i{0}; i < size; ++i){
-    cout << arr[i] << endl;
+void print_array(int *arr, int size) {
+  for (size_t i{0}; i < size; ++i) {
+    cout << arr[i];
   }
+  cout << endl;
 }
